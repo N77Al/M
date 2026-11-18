@@ -388,6 +388,9 @@ body::before{background:
 .i-stage .i-main{padding:.05em .2em .45em;margin-bottom:-.1em;overflow:visible}
 .i-stage .i-orn{margin:14px 0 6px}
 .i-stage{padding-top:64px}
+
+/* no intro page: the start screen opens the invitation directly */
+.i-skip,.i-stage,.i-tap{display:none!important}
 </style>
 </head>
 <body class="locked">
@@ -747,8 +750,8 @@ const CONFIG = {
     setTimeout(()=>{dustOn=false},2000);
     startPetals();
   }
-  env.addEventListener('click',e=>{ if(e.target.closest('#skip')||started) openEnv(true); else startIntro(); });
-  env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){started?openEnv(true):startIntro()}});
+  env.addEventListener('click',()=>openEnv(true));
+  env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openEnv(true)});
 
   // ===== petals =====
   function startPetals(){
