@@ -391,6 +391,9 @@ body::before{background:
 
 /* no intro page: the start screen opens the invitation directly */
 .i-skip,.i-stage,.i-tap{display:none!important}
+
+/* no hero: the invitation card is the first thing shown */
+main>section:first-child{padding-top:34px}
 </style>
 </head>
 <body class="locked">
@@ -517,31 +520,6 @@ const CONFIG = {
 <div class="petals" id="petals"></div>
 
 <main id="content" aria-hidden="true">
-
-  <!-- HERO -->
-  <section class="hero">
-    <svg class="flora tl" viewBox="0 0 220 220"><use href="#cluster"/></svg>
-    <svg class="flora tr" viewBox="0 0 220 220"><use href="#cluster"/></svg>
-    <svg class="flora bl" viewBox="0 0 220 220"><use href="#cluster"/></svg>
-    <svg class="flora br" viewBox="0 0 220 220"><use href="#cluster"/></svg>
-    <div class="reveal hero-arch">
-      <svg class="h-arch" viewBox="0 0 300 430" aria-hidden="true">
-        <path stroke-width="1.4" d="M150,22 C112,66 30,84 30,176 L30,412 L270,412 L270,176 C270,84 188,66 150,22"/>
-        <path stroke-width=".7" opacity=".6" d="M150,40 C118,78 42,94 42,178 L42,400 L258,400 L258,178 C258,94 182,78 150,40"/>
-        <g fill="url(#gGold)" stroke="none"><path d="M150,2 L154,14 L166,18 L154,22 L150,34 L146,22 L134,18 L146,14Z"/>
-        <circle cx="30" cy="412" r="3"/><circle cx="270" cy="412" r="3"/><circle cx="150" cy="412" r="2.4"/><circle cx="90" cy="412" r="1.5"/><circle cx="210" cy="412" r="1.5"/></g>
-      </svg>
-      <div class="day">دعوة لحضور وليمة زفاف مباركة</div>
-      <h1 class="names gold">فرحة العمر</h1>
-      <div class="tagline">بحضوركم تكتمل سعادتنا</div>
-      <div class="divider"><span></span>❦<span></span></div>
-      <div class="date"><b data-k="hijri"></b><span data-k="gregorian"></span></div>
-    </div>
-    <div class="scroll-hint">
-      <span>مرّر للأسفل</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-  </section>
 
   <!-- INVITATION -->
   <section>
