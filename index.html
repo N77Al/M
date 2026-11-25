@@ -377,9 +377,9 @@ body::before{background:
   padding:9px 24px 5px;gap:0;bottom:18px;animation:bob 1.6s ease-in-out infinite,glowpulse 1.8s ease-in-out infinite;white-space:nowrap}
 .scroll-hint svg{width:26px;height:26px;stroke-width:2.4}
 .i-skip{font-size:15px;padding:9px 18px}
-.inv-text .inv-big{display:block;text-wrap:balance;font-size:20px;font-weight:500;line-height:1.9;margin-top:6px}
+.inv-text .inv-big{display:block;text-wrap:balance;font-size:clamp(17px,4.9vw,19.5px);font-weight:500;line-height:1.9;margin-top:6px}
 .inv-text .groom{font-size:34px;line-height:1.7;margin-top:6px}
-.inv-text .inv-father{display:block;text-wrap:balance;font-size:20.5px;font-weight:500;line-height:1.8}
+.inv-text .inv-father{display:block;text-wrap:balance;font-size:clamp(17.5px,5vw,20px);font-weight:500;line-height:1.8}
 
 /* glowing hint words */
 @keyframes textglow{0%,100%{text-shadow:0 0 4px rgba(214,170,70,.55),0 0 10px rgba(214,170,70,.55)}50%{text-shadow:0 0 8px rgba(214,170,70,1),0 0 20px rgba(214,170,70,.9),0 0 34px rgba(214,170,70,.9)}}
@@ -408,6 +408,8 @@ body::before{background:
 
 /* no hero: the invitation card is the first thing shown */
 main>section:first-child{padding-top:34px}
+.closing{text-wrap:balance}
+.inv-text{text-wrap:pretty}
 </style>
 </head>
 <body class="locked">
@@ -545,14 +547,14 @@ const CONFIG = {
       <div class="divider"><span></span>✦<span></span></div>
       <h3 class="inv-title gold">دعوة لحضور وليمة زفاف مباركة</h3>
       <p class="inv-text">
-        <span class="inv-big">يسرنا ويسعدنا أن ندعوكم لحضور وليمة زفاف ولدنا</span>
+        <span class="inv-big">بكل مشاعر الفرح والسرور، يسرّنا ويشرّفنا دعوتكم لحضور وليمة زفاف ولدنا الغالي</span>
         <strong class="groom">محمد حسين</strong>
-        <span class="inv-father">نجل الحاج <strong>حيدر عبدالمهدي هندي</strong></span>
-        <span class="inv-big">ومشاركتنا فرحة العمر.</span>
+        <span class="inv-father">نجل الحاج <strong>حيدر عبد المهدي هندي</strong></span>
+        <span class="inv-big">وذلك لمشاركتنا فرحة العمر، ومشاطرتنا هذه المناسبة السعيدة.</span>
       </p>
-      <p class="inv-text">حضوركم تشريفٌ لنا، ويزيد ليلتنا بهجة وسروراً.</p>
+      <p class="inv-text">إن حضوركم الكريم تشريفٌ لنا، ومصدر بهجةٍ وسرور، تكتمل به أفراحنا وتزداد ليلتنا ألقاً وبهاءً.</p>
       <div class="divider"><span></span>❦<span></span></div>
-      <p class="closing">دمتم ودامت أفراحكم عامرة بالخير والمسرات</p>
+      <p class="closing">دمتم بخير، ودامت أفراحكم عامرةً بالمسرّات، ومناسباتكم مكلّلةً باليُمن والبركات</p>
     </div>
   </section>
 
