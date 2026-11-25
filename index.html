@@ -410,6 +410,11 @@ body::before{background:
 main>section:first-child{padding-top:34px}
 .closing{text-wrap:balance}
 .inv-text{text-wrap:pretty}
+
+/* floating swipe hint (fixed at the bottom until the guest scrolls) */
+.swipe-hint{position:fixed;z-index:44;bottom:22px;bottom:calc(22px + env(safe-area-inset-bottom));padding:5px 24px 9px;
+  opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s}
+.swipe-hint.show{opacity:1;visibility:visible;transition:opacity .6s ease}
 </style>
 </head>
 <body class="locked">
@@ -611,6 +616,10 @@ const CONFIG = {
 </main>
 
 <button id="music" aria-label="تشغيل/إيقاف الموسيقى"><svg viewBox="0 0 24 24" id="musicIco"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg></button>
+<div class="scroll-hint swipe-hint" id="swipeHint" aria-hidden="true">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 15l6-6 6 6"/></svg>
+  <span>مرّر للأعلى</span>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -741,6 +750,7 @@ const CONFIG = {
     if(withSound){whoosh(); try{play()}catch(e){}} else {$('#musicIco').innerHTML='<path d="M8 5v14l11-7z"/>'}
     $('#music').classList.add('show');
     setTimeout(()=>{document.body.classList.remove('locked');$('#content').removeAttribute('aria-hidden');observe();},900);
+    setTimeout(()=>{ if(scrollY<60) $('#swipeHint').classList.add('show'); },1400);
     setTimeout(()=>{dustOn=false},2000);
     startPetals();
   }
@@ -767,6 +777,9 @@ const CONFIG = {
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
+
+  // hide the swipe hint once the guest starts scrolling
+  addEventListener('scroll',()=>{ if(scrollY>60) $('#swipeHint').classList.remove('show'); },{passive:true});
 
   // ===== countdown =====
   const target=start.getTime();
